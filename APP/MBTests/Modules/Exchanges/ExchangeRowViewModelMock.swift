@@ -9,7 +9,7 @@
 
 extension ExchangeRowViewModel {
     static var mock: ExchangeRowViewModel {
-        .init(exchangeID: "", name: "", volume1dayUsd: 0)
+        .init(thumbnailURL: nil, exchangeID: "", name: "", volume1dayUsd: 0)
     }
 }
 

@@ -8,15 +8,15 @@
 import UIKit
 
 extension UIView {
-    func fill(on view: UIView, constant: CGFloat = 0) {
+    func fill(on view: UIView, insets: UIEdgeInsets = .zero) {
         view.addSubview(self)
         translatesAutoresizingMaskIntoConstraints = false
 
         NSLayoutConstraint.activate([
-            topAnchor.constraint(equalTo: view.topAnchor, constant: constant),
-            leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: constant),
-            trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -constant),
-            bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -constant)
+            topAnchor.constraint(equalTo: view.topAnchor, constant: insets.top),
+            leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: insets.left),
+            trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -insets.right),
+            bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -insets.bottom)
         ])
     }
 }

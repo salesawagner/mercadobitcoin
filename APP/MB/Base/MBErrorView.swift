@@ -48,7 +48,7 @@ final class MBErrorView: UIView {
     }
 
     private func setupImageView() {
-        imageView.backgroundColor = .lightGray
+        imageView.image = .init(named: "errorImage")
         NSLayoutConstraint.activate([
             imageView.widthAnchor.constraint(equalToConstant: 100),
             imageView.heightAnchor.constraint(equalToConstant: 100)

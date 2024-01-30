@@ -93,6 +93,7 @@ extension DetailViewController: UITableViewDataSource {
         cell?.textLabel?.text = section.rows[indexPath.row].text
         cell?.textLabel?.numberOfLines = 0
         cell?.backgroundColor = (indexPath.row % 2 == 0) ? .lightGray : .gray
+        cell?.selectionStyle = .none
 
         return cell ?? UITableViewCell()
     }
@@ -103,13 +104,16 @@ extension DetailViewController: UITableViewDataSource {
 extension DetailViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let viewModel = viewModel.sections[section]
+        
+        // FIXME: - Criar class
         let view = UIView(frame: .zero)
 
         let thumbnail = UIImageView()
-        thumbnail.backgroundColor = .darkGray
+        thumbnail.backgroundColor = .white
         thumbnail.contentMode = .scaleAspectFit
-        thumbnail.fill(on: view, constant: 8)
-        NSLayoutConstraint.activate([thumbnail.heightAnchor.constraint(equalToConstant: 200)])
+        thumbnail.fill(on: view, insets: .init(top: .zero, left: .zero, bottom: 16, right: .zero))
+        thumbnail.loadFromUrl(stringURL: viewModel.thumbnailURL)
+        NSLayoutConstraint.activate([thumbnail.heightAnchor.constraint(equalToConstant: 160)])
 
         return view
     }

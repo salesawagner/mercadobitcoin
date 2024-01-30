@@ -41,5 +41,23 @@ final class ExchangesViewControllerTests: XCTestCase {
         sut.tableView(UITableView(), didSelectRowAt: .init(row: 0, section: 0))
         XCTAssertTrue(viewModelSpy.receivedMessages.contains(.didSelecteRow))
     }
+
+    func test_didTapReloadButton_shouldReceiveCorrectMessages() {
+        let (sut, viewModelSpy) = makeSUT()
+        viewModelSpy.rows = .mock
+        loadView(sut: sut)
+
+        sut.didTapReloadButton()
+        XCTAssertTrue(viewModelSpy.receivedMessages.contains(.didTapReload))
+    }
+
+    func test_pullToRefresh_shouldReceiveCorrectMessages() {
+        let (sut, viewModelSpy) = makeSUT()
+        viewModelSpy.rows = .mock
+        loadView(sut: sut)
+
+        sut.pullToRefresh()
+        XCTAssertTrue(viewModelSpy.receivedMessages.contains(.pullToRefresh))
+    }
 }
 

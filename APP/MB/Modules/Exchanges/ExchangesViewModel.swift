@@ -12,6 +12,7 @@ final class ExchangesViewModel {
 
     private var api: APIClient
     private var response: GetExchangesRequest.Response = []
+    private var thumbnails: GetExchangeIconRequest.Response = []
 
     var viewController: ExchangesOutputProtocol?
     var rows: [ExchangeRowViewModel] {
@@ -20,7 +21,12 @@ final class ExchangesViewModel {
                 return nil
             }
 
-            return .init(exchangeID: exchangeID, name: name, volume1dayUsd: volume1DayUsd)
+            return .init(
+                thumbnailURL: getThumbnailURL(exchangeID: exchangeID),
+                exchangeID: exchangeID,
+                name: name,
+                volume1dayUsd: volume1DayUsd
+            )
         }
     }
 
@@ -32,25 +38,43 @@ final class ExchangesViewModel {
 
     // MARK: Private Methods
 
+    private func getThumbnailURL(exchangeID: String?) -> String? {
+        thumbnails.first { $0.exchangeID == exchangeID }?.url
+    }
+
     private func requestExchanges() {
         viewController?.startLoading()
-        api.send(GetExchangesRequest()) { [weak self] result in
+        requestIcons { [weak self] in
+            self?.api.send(GetExchangesRequest()) { result in
+                switch result {
+                case .success(let response):
+                    self?.response = response.sorted {
+                        guard let name0 = $0.name, let name1 = $1.name else {
+                            return $0.name != nil
+                        }
+                        return name0 < name1
+                    }
+
+                    DispatchQueue.main.async {
+                        self?.viewController?.success()
+                    }
+                case .failure:
+                    DispatchQueue.main.async {
+                        self?.viewController?.failure()
+                    }
+                }
+            }
+        }
+    }
+
+    private func requestIcons(completion: @escaping () -> Void) {
+        api.send(GetExchangeIconRequest()) { [weak self] result in
             switch result {
             case .success(let response):
-                self?.response = response.sorted {
-                    guard let name0 = $0.name, let name1 = $1.name else {
-                        return $0.name != nil
-                    }
-                    return name0 < name1
-                }
-
-                DispatchQueue.main.async {
-                    self?.viewController?.success()
-                }
+                self?.thumbnails = response
+                completion()
             case .failure:
-                DispatchQueue.main.async {
-                    self?.viewController?.failure()
-                }
+                completion()
             }
         }
     }
@@ -61,9 +85,14 @@ final class ExchangesViewModel {
 extension ExchangesViewModel: ExchangesInputProtocol {
     func didSelectRow(indexPath: IndexPath) {
         let exchange = response[indexPath.row]
+        let detailViewModel = DetailViewModel(
+            api: api,
+            detail: exchange,
+            thumbnailURL: getThumbnailURL(exchangeID: exchange.exchangeID)
+        )
 
         (viewController as? UIViewController)?.navigationController?.pushViewController(
-            DetailViewController.create(with: DetailViewModel(detail: exchange)),
+            DetailViewController.create(with: detailViewModel),
             animated: true
         )
     }

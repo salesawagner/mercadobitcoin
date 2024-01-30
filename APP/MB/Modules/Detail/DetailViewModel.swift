@@ -12,15 +12,17 @@ class DetailViewModel {
 
     private var api: APIClient
     private var detail: GetExchangesResponse
+    private let thumbnailURL: String?
 
     var viewController: DetailOutputProtocol?
     var sections: [DetailSectionViewModel] = []
 
     // MARK: Inits
 
-    init(api: APIClient = WASAPI(environment: Environment.production), detail: GetExchangesResponse) {
+    init(api: APIClient, detail: GetExchangesResponse, thumbnailURL: String?) {
         self.api = api
         self.detail = detail
+        self.thumbnailURL = thumbnailURL
     }
 
     // MARK: Private Methods
@@ -62,7 +64,7 @@ class DetailViewModel {
 
         // FIXME: Icon
         sections = []
-        sections.append(.init(thumbnailURL: "", rows: rows))
+        sections.append(.init(thumbnailURL: thumbnailURL, rows: rows))
 
         DispatchQueue.main.async { [weak self] in
             self?.viewController?.success()

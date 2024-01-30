@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import API
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -16,7 +17,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         window = UIWindow()
 
-        let viewController = ExchangesViewController.create()
+        let api = WASAPI(environment: Environment.local)
+        let viewController = ExchangesViewController.create(with: ExchangesViewModel(api: api))
         let navigationController = UINavigationController(rootViewController: viewController)
 
         window?.rootViewController = navigationController

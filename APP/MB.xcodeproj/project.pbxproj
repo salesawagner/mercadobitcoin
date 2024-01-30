@@ -21,6 +21,8 @@
 		6D41D82002034341DD662C32 /* Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C83A0E394192BEA7FC25AB0 /* Environment.swift */; };
 		8A639C4AE9A9C3CA71B4B41D /* ExchangessProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7105CFED476B8675AD6B32A5 /* ExchangessProtocols.swift */; };
 		9ED2EE6D5CFB071EDE9F7F9D /* UIViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB07D2EE3E06DEBA65A31D31 /* UIViewExtensions.swift */; };
+		A7DBFE742B69600900A6231F /* UIImageViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7DBFE732B69600900A6231F /* UIImageViewExtensions.swift */; };
+		A7DBFE762B69686000A6231F /* UIEdgeInsetsExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7DBFE752B69686000A6231F /* UIEdgeInsetsExtensions.swift */; };
 		A7FCCC8A2B68A18100CC85E0 /* ExchangesViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7FCCC892B68A18100CC85E0 /* ExchangesViewControllerTests.swift */; };
 		A7FCCC8C2B68A1E100CC85E0 /* ExchangesViewModelSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7FCCC8B2B68A1E100CC85E0 /* ExchangesViewModelSpy.swift */; };
 		A7FCCC8F2B68A2CD00CC85E0 /* ExchangeRowViewModelMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7FCCC8E2B68A2CD00CC85E0 /* ExchangeRowViewModelMock.swift */; };
@@ -35,6 +37,8 @@
 		A7FCCCA62B6923B300CC85E0 /* GetExchangesByIdRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7FCCC9F2B6923B200CC85E0 /* GetExchangesByIdRequest.swift */; };
 		A7FCCCA82B69252200CC85E0 /* SkipBody.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7FCCCA72B69252200CC85E0 /* SkipBody.swift */; };
 		A7FCCCAB2B692D3500CC85E0 /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7FCCCAA2B692D3500CC85E0 /* HeaderView.swift */; };
+		A7FCCCAD2B6935BB00CC85E0 /* GetExchangeIconRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7FCCCAC2B6935BB00CC85E0 /* GetExchangeIconRequest.swift */; };
+		A7FCCCAF2B69361200CC85E0 /* GetExchangeIconResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7FCCCAE2B69361200CC85E0 /* GetExchangeIconResponse.swift */; };
 		AADB5F776B310DA7F91EFD7B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C76A873D3087CEECC1C11157 /* AppDelegate.swift */; };
 		AE67FC5677694C868D0A653D /* ExchangeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20795F188F377E5F0F4FD1D1 /* ExchangeCell.swift */; };
 		B15885D0803FE1D117145FFC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BBAE128DC8128714401C4DC4 /* LaunchScreen.storyboard */; };
@@ -70,6 +74,8 @@
 		8963E767AF4DF24A9B5996EC /* WASAPIMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WASAPIMock.swift; sourceTree = "<group>"; };
 		9A500356A39BEDA1266856ED /* ExchangeRowViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeRowViewModel.swift; sourceTree = "<group>"; };
 		A02A24685106CC4BA5E7B720 /* MBTests.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = MBTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		A7DBFE732B69600900A6231F /* UIImageViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageViewExtensions.swift; sourceTree = "<group>"; };
+		A7DBFE752B69686000A6231F /* UIEdgeInsetsExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIEdgeInsetsExtensions.swift; sourceTree = "<group>"; };
 		A7FCCC892B68A18100CC85E0 /* ExchangesViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangesViewControllerTests.swift; sourceTree = "<group>"; };
 		A7FCCC8B2B68A1E100CC85E0 /* ExchangesViewModelSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangesViewModelSpy.swift; sourceTree = "<group>"; };
 		A7FCCC8E2B68A2CD00CC85E0 /* ExchangeRowViewModelMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeRowViewModelMock.swift; sourceTree = "<group>"; };
@@ -84,6 +90,8 @@
 		A7FCCC9F2B6923B200CC85E0 /* GetExchangesByIdRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetExchangesByIdRequest.swift; sourceTree = "<group>"; };
 		A7FCCCA72B69252200CC85E0 /* SkipBody.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SkipBody.swift; sourceTree = "<group>"; };
 		A7FCCCAA2B692D3500CC85E0 /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
+		A7FCCCAC2B6935BB00CC85E0 /* GetExchangeIconRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetExchangeIconRequest.swift; sourceTree = "<group>"; };
+		A7FCCCAE2B69361200CC85E0 /* GetExchangeIconResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetExchangeIconResponse.swift; sourceTree = "<group>"; };
 		AE871518D78786E5AF44DD3A /* ExchangesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangesViewController.swift; sourceTree = "<group>"; };
 		C16A0D4830BB13D8CEE1CC07 /* ResponseType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseType.swift; sourceTree = "<group>"; };
 		C76A873D3087CEECC1C11157 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -119,7 +127,9 @@
 		101E49450228BEB104A534DC /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				A7DBFE732B69600900A6231F /* UIImageViewExtensions.swift */,
 				CB07D2EE3E06DEBA65A31D31 /* UIViewExtensions.swift */,
+				A7DBFE752B69686000A6231F /* UIEdgeInsetsExtensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -171,6 +181,8 @@
 				A7FCCC9F2B6923B200CC85E0 /* GetExchangesByIdRequest.swift */,
 				4B49052EBC9CCDDCB2EE0B12 /* GetExchangesRequest.swift */,
 				3C438150AD6BF2411CC7D8E5 /* GetExchangesResponse.swift */,
+				A7FCCCAC2B6935BB00CC85E0 /* GetExchangeIconRequest.swift */,
+				A7FCCCAE2B69361200CC85E0 /* GetExchangeIconResponse.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -453,6 +465,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A7FCCCAD2B6935BB00CC85E0 /* GetExchangeIconRequest.swift in Sources */,
 				A7FCCCA42B6923B300CC85E0 /* DetailViewModel.swift in Sources */,
 				AADB5F776B310DA7F91EFD7B /* AppDelegate.swift in Sources */,
 				A7FCCCA82B69252200CC85E0 /* SkipBody.swift in Sources */,
@@ -460,14 +473,17 @@
 				AE67FC5677694C868D0A653D /* ExchangeCell.swift in Sources */,
 				64F7C9E3B494D4D88E850B09 /* ExchangeRowViewModel.swift in Sources */,
 				22300CE8B482AA8D6BDAF536 /* ExchangesViewController.swift in Sources */,
+				A7DBFE762B69686000A6231F /* UIEdgeInsetsExtensions.swift in Sources */,
 				2BE6D237ED207B36AF815E36 /* ExchangesViewModel.swift in Sources */,
 				8A639C4AE9A9C3CA71B4B41D /* ExchangessProtocols.swift in Sources */,
 				2357D324EB8BA43A6CD92996 /* GetExchangesRequest.swift in Sources */,
 				A7FCCCA32B6923B300CC85E0 /* DetailProtocols.swift in Sources */,
 				A7FCCCA12B6923B300CC85E0 /* DetailRowViewModel.swift in Sources */,
+				A7FCCCAF2B69361200CC85E0 /* GetExchangeIconResponse.swift in Sources */,
 				A7FCCC962B68C8E300CC85E0 /* MBErrorView.swift in Sources */,
 				A7FCCCA02B6923B300CC85E0 /* DetailSectionViewModel.swift in Sources */,
 				A7FCCCA62B6923B300CC85E0 /* GetExchangesByIdRequest.swift in Sources */,
+				A7DBFE742B69600900A6231F /* UIImageViewExtensions.swift in Sources */,
 				A7FCCCAB2B692D3500CC85E0 /* HeaderView.swift in Sources */,
 				060E8284F48DDE529C997557 /* GetExchangesResponse.swift in Sources */,
 				A7FCCCA22B6923B300CC85E0 /* DetailViewController.swift in Sources */,

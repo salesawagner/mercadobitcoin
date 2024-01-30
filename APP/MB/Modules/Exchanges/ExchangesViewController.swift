@@ -51,16 +51,18 @@ final class ExchangesViewController: MBTableViewController {
         tableView.register(ExchangeCell.self, forCellReuseIdentifier: ExchangeCell.identifier)
     }
 
+    // MARK: Internal Methods
+
+    @objc
+    func pullToRefresh() {
+        self.viewModel.pullToRefresh()
+    }
+
     // MARK: Private Methods
 
     private func setupRefreshControl() {
-        self.refreshControl.addTarget(self, action: #selector(self.pullToRefresh(_:)), for: .valueChanged)
+        self.refreshControl.addTarget(self, action: #selector(self.pullToRefresh), for: .valueChanged)
         self.tableView.addSubview(refreshControl)
-    }
-
-    @objc
-    private func pullToRefresh(_ sender: AnyObject) {
-        self.viewModel.pullToRefresh()
     }
 
     private func stopLoading() {

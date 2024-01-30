@@ -37,7 +37,7 @@ final class ExchangesViewModelTests: XCTestCase {
 
     func test_requestExchanges_startLoading_shouldReceiveCorrectMessages() {
         let (sut, viewControllerSpy) = makeSUT(api: WASAPI(environment: Environment.local))
-        sut.requestExchanges()
+        sut.viewDidLoad()
 
         XCTAssertEqual(viewControllerSpy.receivedMessages, [.startLoading])
     }
@@ -45,7 +45,7 @@ final class ExchangesViewModelTests: XCTestCase {
     func test_requestExchanges_success_shouldReceiveCorrectMessages() {
         let expectation = XCTestExpectation(description: "requestExchanges_success")
         let (sut, viewControllerSpy) = makeSUT(api: WASAPI(environment: Environment.local), expectation: expectation)
-        sut.requestExchanges()
+        sut.viewDidLoad()
 
         let result = XCTWaiter.wait(for: [expectation], timeout: 1)
         switch result {
@@ -59,7 +59,7 @@ final class ExchangesViewModelTests: XCTestCase {
     func test_requestExchanges_failure_shouldReceiveCorrectMessages() {
         let expectation = XCTestExpectation(description: "requestExchanges_failure")
         let (sut, viewControllerSpy) = makeSUT(api: WASAPIMock(), expectation: expectation)
-        sut.requestExchanges()
+        sut.viewDidLoad()
 
         let result = XCTWaiter.wait(for: [expectation], timeout: 1)
         switch result {

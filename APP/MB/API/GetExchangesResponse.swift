@@ -5,8 +5,6 @@
 //  Created by Wagner Sales on 29/01/24.
 //
 
-import Foundation
-
 struct GetExchangesResponse: Decodable {
     let exchangeID: String?
     let website: String?

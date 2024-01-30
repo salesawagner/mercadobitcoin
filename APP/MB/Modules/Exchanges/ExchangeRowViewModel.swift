@@ -8,6 +8,7 @@
 import Foundation
 
 struct ExchangeRowViewModel {
+    let thumbnailURL: String?
     let exchangeID: String
     let name: String
     let volume1dayUsd: Double

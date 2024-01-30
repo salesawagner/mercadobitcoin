@@ -30,6 +30,14 @@ final class ExchangesViewModelSpy: ExchangesInputProtocol {
     func didSelectRow(indexPath: IndexPath) {
         receivedMessages.append(.didSelecteRow)
     }
+
+    func didTapReload() {
+        receivedMessages.append(.didTapReload)
+    }
+
+    func pullToRefresh() {
+        receivedMessages.append(.pullToRefresh)
+    }
 }
 
 extension ExchangesViewModelSpy {
@@ -37,6 +45,8 @@ extension ExchangesViewModelSpy {
         case viewDidLoad
         case requestExchanges
         case didSelecteRow
+        case didTapReload
+        case pullToRefresh
     }
 }
 
