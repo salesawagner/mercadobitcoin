@@ -7,7 +7,7 @@
 
 import API
 
-class ExchangesViewModel {
+final class ExchangesViewModel {
     // MARK: Properties
 
     private var api: APIClient
@@ -29,16 +29,10 @@ class ExchangesViewModel {
     init(api: APIClient = WASAPI(environment: Environment.production)) {
         self.api = api
     }
-}
 
-// MARK: - ExchangesInputProtocol
+    // MARK: Private Methods
 
-extension ExchangesViewModel: ExchangesInputProtocol {
-    func viewDidLoad() {
-        requestExchanges()
-    }
-
-    func requestExchanges() {
+    private func requestExchanges() {
         viewController?.startLoading()
         api.send(GetExchangesRequest()) { [weak self] result in
             switch result {
@@ -60,7 +54,11 @@ extension ExchangesViewModel: ExchangesInputProtocol {
             }
         }
     }
+}
 
+// MARK: - ExchangesInputProtocol
+
+extension ExchangesViewModel: ExchangesInputProtocol {
     func didSelectRow(indexPath: IndexPath) {
         let exchange = response[indexPath.row]
         print(exchange.name)
@@ -69,5 +67,17 @@ extension ExchangesViewModel: ExchangesInputProtocol {
 //            DetailViewController.create(with: .init(name: comic.name, resourceURI: comic.resourceURI)),
 //            animated: true
 //        )
+    }
+
+    func didTapReload() {
+        requestExchanges()
+    }
+
+    func pullToRefresh() {
+        requestExchanges()
+    }
+
+    func viewDidLoad() {
+        requestExchanges()
     }
 }

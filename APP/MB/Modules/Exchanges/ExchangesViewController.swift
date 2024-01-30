@@ -11,6 +11,7 @@ final class ExchangesViewController: MBTableViewController {
     // MARK: Properties
 
     var viewModel: ExchangesInputProtocol
+    var refreshControl = UIRefreshControl()
     var errorView: UIView?
 
     // MARK: Constructors
@@ -38,11 +39,39 @@ final class ExchangesViewController: MBTableViewController {
         viewModel.viewDidLoad()
     }
 
+    override func setupUI() {
+        super.setupUI()
+        setupRefreshControl()
+    }
+
     override func setupTableView() {
         super.setupTableView()
         tableView.dataSource = self
         tableView.delegate = self
         tableView.register(ExchangeCell.self, forCellReuseIdentifier: ExchangeCell.identifier)
+    }
+
+    // MARK: Private Methods
+
+    private func setupRefreshControl() {
+        self.refreshControl.addTarget(self, action: #selector(self.refresh(_:)), for: .valueChanged)
+        self.tableView.addSubview(refreshControl)
+    }
+
+    @objc
+    private func refresh(_ sender: AnyObject) {
+        self.viewModel.pullToRefresh()
+    }
+
+    private func stopLoading() {
+        activityIndicator.stopAnimating()
+        refreshControl.endRefreshing()
+    }
+
+    private func removeErrorView() {
+        errorView?.alpha = 0
+        errorView?.removeFromSuperview()
+        errorView = nil
     }
 }
 
@@ -77,28 +106,25 @@ extension ExchangesViewController: ExchangesOutputProtocol {
     func startLoading() {
         activityIndicator.startAnimating()
         UIView.animate(withDuration: 0.25) { [weak self] in
-            self?.errorView?.alpha = 0
             self?.tableView.alpha = 0
+            self?.removeErrorView()
         }
     }
 
     func success() {
+        stopLoading()
         tableView.reloadData()
-        activityIndicator.stopAnimating()
         UIView.animate(withDuration: 0.25) { [weak self] in
             self?.tableView.alpha = 1
-            self?.errorView?.alpha = 0
-            self?.errorView?.removeFromSuperview()
-            self?.errorView = nil
+            self?.removeErrorView()
         }
     }
 
     func failure() {
-        activityIndicator.stopAnimating()
+        stopLoading()
         guard errorView == nil else { return }
 
-        errorView = UIView()
-        errorView?.backgroundColor = .blue
+        errorView = MBErrorView(delegate: self)
         errorView?.alpha = 0
         errorView?.fill(on: view)
 
@@ -106,5 +132,13 @@ extension ExchangesViewController: ExchangesOutputProtocol {
             self?.errorView?.alpha = 1
             self?.tableView.alpha = 0
         }
+    }
+}
+
+// MARK: - MBErrorViewDelegate
+
+extension ExchangesViewController: MBErrorViewDelegate {
+    func didTapReloadButton() {
+        viewModel.didTapReload()
     }
 }

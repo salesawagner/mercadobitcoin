@@ -26,6 +26,7 @@
 		A7FCCC8F2B68A2CD00CC85E0 /* ExchangeRowViewModelMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7FCCC8E2B68A2CD00CC85E0 /* ExchangeRowViewModelMock.swift */; };
 		A7FCCC912B68A38F00CC85E0 /* ExchangesViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7FCCC902B68A38F00CC85E0 /* ExchangesViewModelTests.swift */; };
 		A7FCCC932B68A3F700CC85E0 /* ExchangesViewControllerSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7FCCC922B68A3F700CC85E0 /* ExchangesViewControllerSpy.swift */; };
+		A7FCCC962B68C8E300CC85E0 /* MBErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7FCCC952B68C8E300CC85E0 /* MBErrorView.swift */; };
 		AADB5F776B310DA7F91EFD7B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C76A873D3087CEECC1C11157 /* AppDelegate.swift */; };
 		AE67FC5677694C868D0A653D /* ExchangeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20795F188F377E5F0F4FD1D1 /* ExchangeCell.swift */; };
 		B15885D0803FE1D117145FFC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BBAE128DC8128714401C4DC4 /* LaunchScreen.storyboard */; };
@@ -66,6 +67,7 @@
 		A7FCCC8E2B68A2CD00CC85E0 /* ExchangeRowViewModelMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeRowViewModelMock.swift; sourceTree = "<group>"; };
 		A7FCCC902B68A38F00CC85E0 /* ExchangesViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangesViewModelTests.swift; sourceTree = "<group>"; };
 		A7FCCC922B68A3F700CC85E0 /* ExchangesViewControllerSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangesViewControllerSpy.swift; sourceTree = "<group>"; };
+		A7FCCC952B68C8E300CC85E0 /* MBErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MBErrorView.swift; sourceTree = "<group>"; };
 		AE871518D78786E5AF44DD3A /* ExchangesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangesViewController.swift; sourceTree = "<group>"; };
 		C16A0D4830BB13D8CEE1CC07 /* ResponseType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseType.swift; sourceTree = "<group>"; };
 		C76A873D3087CEECC1C11157 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -208,6 +210,7 @@
 			isa = PBXGroup;
 			children = (
 				879E01868588F6F41BEA279E /* MBTableViewController.swift */,
+				A7FCCC952B68C8E300CC85E0 /* MBErrorView.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -418,6 +421,7 @@
 				2BE6D237ED207B36AF815E36 /* ExchangesViewModel.swift in Sources */,
 				8A639C4AE9A9C3CA71B4B41D /* ExchangessProtocols.swift in Sources */,
 				2357D324EB8BA43A6CD92996 /* GetExchangesRequest.swift in Sources */,
+				A7FCCC962B68C8E300CC85E0 /* MBErrorView.swift in Sources */,
 				060E8284F48DDE529C997557 /* GetExchangesResponse.swift in Sources */,
 				B3E12A70B4EFEAC1FF89A85D /* MBTableViewController.swift in Sources */,
 				9ED2EE6D5CFB071EDE9F7F9D /* UIViewExtensions.swift in Sources */,
