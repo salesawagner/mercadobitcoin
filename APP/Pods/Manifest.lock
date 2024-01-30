@@ -1,0 +1,23 @@
+PODS:
+  - API (1.0.0)
+  - SwiftLint (0.52.4)
+
+DEPENDENCIES:
+  - API (from `../API`)
+  - SwiftLint
+
+SPEC REPOS:
+  trunk:
+    - SwiftLint
+
+EXTERNAL SOURCES:
+  API:
+    :path: "../API"
+
+SPEC CHECKSUMS:
+  API: 2b449198372418c098a7f4707d1a34cf8b3c5a89
+  SwiftLint: 1cc5cd61ba9bacb2194e340aeb47a2a37fda00b3
+
+PODFILE CHECKSUM: 43d32ba4b65fed8c88d5d7fe09680f6640d94856
+
+COCOAPODS: 1.12.1
