@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct ExchangesRowViewModel {
+struct ExchangeRowViewModel {
     let exchangeID: String
     let name: String
     let volume1dayUsd: Double

@@ -14,7 +14,7 @@ class ExchangesViewModel {
     private var response: GetExchangesRequest.Response = []
 
     var viewController: ExchangesOutputProtocol?
-    var rows: [ExchangesRowViewModel] {
+    var rows: [ExchangeRowViewModel] {
         response.compactMap {
             guard let exchangeID = $0.exchangeID, let name = $0.name, let volume1DayUsd = $0.volume1DayUsd else {
                 return nil

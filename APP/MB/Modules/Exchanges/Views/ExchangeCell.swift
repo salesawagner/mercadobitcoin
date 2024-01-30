@@ -49,7 +49,7 @@ final class ExchangeCell: UITableViewCell {
 
     // MARK: Internal Methods
 
-    func setup(with viewModel: ExchangesRowViewModel) {
+    func setup(with viewModel: ExchangeRowViewModel) {
         idLabel.text = "id: \(viewModel.exchangeID)"
         nameLabel.text = "nome: \(viewModel.name)"
         volumeLabel.text = "Volume de 1 dia: \(viewModel.volume1dayUsd)"

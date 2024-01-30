@@ -50,16 +50,6 @@
                ReferencedContainer = "container:MB.xcodeproj">
             </BuildableReference>
          </TestableReference>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "64CB4A4158C49B3177A4C28C"
-               BuildableName = "MBUITests.xctest"
-               BlueprintName = "MBUITests"
-               ReferencedContainer = "container:MB.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
       </Testables>
       <CommandLineArguments>
       </CommandLineArguments>

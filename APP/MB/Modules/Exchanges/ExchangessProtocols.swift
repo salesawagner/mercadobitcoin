@@ -9,7 +9,7 @@ import Foundation
 
 protocol ExchangesInputProtocol {
     var viewController: ExchangesOutputProtocol? { get set }
-    var rows: [ExchangesRowViewModel] { get }
+    var rows: [ExchangeRowViewModel] { get }
     func viewDidLoad()
     func requestExchanges()
     func didSelectRow(indexPath: IndexPath)

@@ -6,7 +6,7 @@
 //
 
 import XCTest
-@testable import mb
+@testable import MB
 
 final class mbTests: XCTestCase {
 

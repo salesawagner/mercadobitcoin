@@ -38,17 +38,7 @@ targets:
       - path: MBTests
 
     dependencies:
-      - target: MB
-
-  MBUITests:
-    platform: iOS
-    type: bundle.ui-testing
-
-    sources:
-      - path: MBUITests
-
-    dependencies:
-      - target: MB    
+      - target: MB  
 
 schemes:
   MB:
@@ -66,4 +56,3 @@ schemes:
         - MB
       targets:
         - MBTests
-        - MBUITests
