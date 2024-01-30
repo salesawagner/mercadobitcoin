@@ -10,13 +10,10 @@ class Environment: APIEnvironment {
         self.domainURL = domainURL
         self.type = type
     }
+}
 
+// MARK: - Utils
+
+extension Environment {
     static var local = Environment(apiKey: "", type: .local)
-    static var production: Environment {
-        Environment(
-            apiKey: "A2CC1F18-478B-4F2C-AFB2-E9D0A236B840", // FIXME: Colocar no plist ?
-            domainURL: URL(string: "https://rest.coinapi.io/v1/"),
-            type: .production
-        )
-    }
 }

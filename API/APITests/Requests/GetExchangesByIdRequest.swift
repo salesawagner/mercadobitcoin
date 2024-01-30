@@ -1,4 +1,4 @@
-@testable import API
+import API
 
 struct GetExchangesByIdRequest: APIRequest {
     typealias Response = [GetExchangesResponse]
@@ -11,7 +11,7 @@ struct GetExchangesByIdRequest: APIRequest {
         return "exchanges/\(id)"
     }
 
-    @SkipBody var id: String
+    var id: String
 
     init(id: String) {
         self.id = id

@@ -1,5 +1,5 @@
 //
-//  MarvelError.swift
+//  MBError.swift
 //  API
 //
 //  Created by Wagner Sales on 05/12/23.

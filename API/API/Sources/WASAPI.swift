@@ -133,14 +133,12 @@ public class WASAPI: APIClient {
         os_log("%@", log: Logger.request, urlRequest.cURL)
 
         dataTask(urlRequest: urlRequest) { [weak self] result in
-            DispatchQueue.main.async {
-                switch result {
-                case .success(let (data, response)):
-                    self?.parse(request, data: data, response: response, completion: completion)
+            switch result {
+            case .success(let (data, response)):
+                self?.parse(request, data: data, response: response, completion: completion)
 
-                case .failure(let error):
-                    completion(.failure(error))
-                }
+            case .failure(let error):
+                completion(.failure(error))
             }
         }
     }

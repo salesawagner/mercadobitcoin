@@ -1,4 +1,4 @@
-@testable import API
+import API
 
 struct GetExchangesRequest: APIRequest {
     typealias Response = [GetExchangesResponse]
@@ -8,6 +8,6 @@ struct GetExchangesRequest: APIRequest {
     }
 
     var resourceName: String {
-        return "exchanges"
+        "exchanges"
     }
 }

@@ -14,23 +14,8 @@ final class APITests: XCTestCase {
         let api = WASAPI(environment: Environment.local)
         api.send(GetExchangesRequest()) { result in
             switch result {
-            case .success(let response):
-                XCTAssertEqual(response.count, 47)
-
-            case .failure(let error):
-                var message = ""
-                switch error {
-                case .unknown(let error, let statusCode):
-                    message = error.localizedDescription
-                case .decoding(let error):
-                    message = error.localizedDescription
-                case .server(let erroMessage):
-                    message = erroMessage
-                default:
-                    message = "unknown"
-                }
-
-                XCTFail(message)
+            case .success(let response): XCTAssertEqual(response.count, 47)
+            case .failure(let error): XCTFail(error.localizedDescription)
             }
 
             expectation.fulfill()
@@ -45,28 +30,18 @@ final class APITests: XCTestCase {
         api.send(GetExchangesByIdRequest(id: "BINANCE")) { result in
             switch result {
             case .success(let response):
-                XCTAssertEqual(response.count, 1)
+                guard let exchange = response.first else {
+                    XCTFail("Response error")
+                    return
+                }
 
-            case .failure:
-                XCTFail()
-            }
+                XCTAssertEqual(exchange.exchangeID, "BINANCE")
+                XCTAssertEqual(exchange.website, "https://www.binance.com/")
+                XCTAssertEqual(exchange.name, "Binance")
+                XCTAssertEqual(exchange.dataQuoteStart, "2017-12-18T00:00:00.0000000Z")
 
-            expectation.fulfill()
-        }
-
-        wait(for: [expectation], timeout: 3)
-    }
-
-    func testOnlineExchangesById() throws {
-        let expectation = XCTestExpectation(description: "testOnlineExchangesById")
-        let api = WASAPI(environment: Environment.production)
-        api.send(GetExchangesByIdRequest(id: "BINANCE")) { result in
-            switch result {
-            case .success(let response):
-                XCTAssertEqual(response.count, 1)
-
-            case .failure:
-                XCTFail()
+            case .failure(let error):
+                XCTFail(error.localizedDescription)
             }
 
             expectation.fulfill()
