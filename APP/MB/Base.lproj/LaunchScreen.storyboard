@@ -15,21 +15,8 @@
                     <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="KT8-yK-2Pb">
-                                <rect key="frame" x="8" y="67" width="377" height="743"/>
-                            </imageView>
-                        </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <constraints>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="KT8-yK-2Pb" secondAttribute="bottom" constant="8" id="123-xe-mxi"/>
-                            <constraint firstItem="KT8-yK-2Pb" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="Dxr-SR-DL6"/>
-                            <constraint firstItem="KT8-yK-2Pb" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="8" id="XcG-k6-vd0"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="KT8-yK-2Pb" secondAttribute="trailing" constant="8" id="Xcp-mm-MSc"/>
-                            <constraint firstItem="KT8-yK-2Pb" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="ae4-ks-RgE"/>
-                            <constraint firstItem="KT8-yK-2Pb" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="8" id="zov-cW-bmE"/>
-                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -38,7 +25,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="logo" width="1365.3333740234375" height="1365.3333740234375"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

@@ -2,7 +2,7 @@
 //  ExchangesViewModel.swift
 //  MB
 //
-//  Created by Wagner Sales on 06/12/23.
+//  Created by Wagner Sales on 29/01/24.
 //
 
 import API
@@ -61,12 +61,11 @@ final class ExchangesViewModel {
 extension ExchangesViewModel: ExchangesInputProtocol {
     func didSelectRow(indexPath: IndexPath) {
         let exchange = response[indexPath.row]
-        print(exchange.name)
-//
-//        (viewController as? UIViewController)?.navigationController?.pushViewController(
-//            DetailViewController.create(with: .init(name: comic.name, resourceURI: comic.resourceURI)),
-//            animated: true
-//        )
+
+        (viewController as? UIViewController)?.navigationController?.pushViewController(
+            DetailViewController.create(with: DetailViewModel(detail: exchange)),
+            animated: true
+        )
     }
 
     func didTapReload() {

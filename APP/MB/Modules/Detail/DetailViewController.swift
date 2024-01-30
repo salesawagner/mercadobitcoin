@@ -1,5 +1,5 @@
 //
-//  ExchangesViewController.swift
+//  DetailViewController.swift
 //  MB
 //
 //  Created by Wagner Sales on 29/01/24.
@@ -7,16 +7,16 @@
 
 import UIKit
 
-final class ExchangesViewController: MBTableViewController {
-    // MARK: Properties
+final class DetailViewController: MBTableViewController {
+    // MARK: - Properties
 
-    var viewModel: ExchangesInputProtocol
+    var viewModel: DetailInputProtocol
     var refreshControl = UIRefreshControl()
     var errorView: UIView?
 
     // MARK: Constructors
 
-    private init(viewModel: ExchangesInputProtocol) {
+    private init(viewModel: DetailInputProtocol) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
     }
@@ -26,8 +26,8 @@ final class ExchangesViewController: MBTableViewController {
         fatalError("init(coder:) has not been implemented")
     }
 
-    static func create(with viewModel: ExchangesInputProtocol = ExchangesViewModel()) -> ExchangesViewController {
-        let viewController = ExchangesViewController(viewModel: viewModel)
+    static func create(with viewModel: DetailInputProtocol) -> DetailViewController {
+        let viewController = DetailViewController(viewModel: viewModel)
         viewController.viewModel.viewController = viewController
         return viewController
     }
@@ -36,6 +36,7 @@ final class ExchangesViewController: MBTableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupUI()
         viewModel.viewDidLoad()
     }
 
@@ -46,9 +47,9 @@ final class ExchangesViewController: MBTableViewController {
 
     override func setupTableView() {
         super.setupTableView()
-        tableView.dataSource = self
         tableView.delegate = self
-        tableView.register(ExchangeCell.self, forCellReuseIdentifier: ExchangeCell.identifier)
+        tableView.dataSource = self
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "Cell")
     }
 
     // MARK: Private Methods
@@ -77,15 +78,20 @@ final class ExchangesViewController: MBTableViewController {
 
 // MARK: - UITableViewDataSource
 
-extension ExchangesViewController: UITableViewDataSource {
+extension DetailViewController: UITableViewDataSource {
+    func numberOfSections(in tableView: UITableView) -> Int {
+        viewModel.sections.count
+    }
+
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        viewModel.rows.count
+        viewModel.sections[section].rows.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let row = viewModel.rows[indexPath.row]
-        let cell = tableView.dequeueReusableCell(withIdentifier: ExchangeCell.identifier) as? ExchangeCell
-        cell?.setup(with: row)
+        let section = viewModel.sections[indexPath.section]
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell")
+        cell?.textLabel?.text = section.rows[indexPath.row].text
+        cell?.textLabel?.numberOfLines = 0
         cell?.backgroundColor = (indexPath.row % 2 == 0) ? .lightGray : .gray
 
         return cell ?? UITableViewCell()
@@ -94,15 +100,36 @@ extension ExchangesViewController: UITableViewDataSource {
 
 // MARK: - UITableViewDelegate
 
-extension ExchangesViewController: UITableViewDelegate {
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        viewModel.didSelectRow(indexPath: indexPath)
+extension DetailViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let viewModel = viewModel.sections[section]
+        let view = UIView(frame: .zero)
+
+        let thumbnail = UIImageView()
+        thumbnail.backgroundColor = .darkGray
+        thumbnail.contentMode = .scaleAspectFit
+        thumbnail.fill(on: view, constant: 8)
+        NSLayoutConstraint.activate([thumbnail.heightAnchor.constraint(equalToConstant: 200)])
+
+        return view
     }
 }
 
-// MARK: - ExchangesOutnputProtocol
+// MARK: - MBErrorViewDelegate
 
-extension ExchangesViewController: ExchangesOutputProtocol {
+extension DetailViewController: MBErrorViewDelegate {
+    func didTapReloadButton() {
+        viewModel.didTapReloadButton()
+    }
+}
+
+// MARK: - DetailOutputProtocol
+
+extension DetailViewController: DetailOutputProtocol {
+    func setTitle(_ title: String) {
+        navigationItem.title = title
+    }
+
     func startLoading() {
         activityIndicator.startAnimating()
         UIView.animate(withDuration: 0.25) { [weak self] in
@@ -122,6 +149,7 @@ extension ExchangesViewController: ExchangesOutputProtocol {
 
     func failure() {
         stopLoading()
+        tableView.reloadData()
         guard errorView == nil else { return }
 
         errorView = MBErrorView(delegate: self)
@@ -132,13 +160,5 @@ extension ExchangesViewController: ExchangesOutputProtocol {
             self?.errorView?.alpha = 1
             self?.tableView.alpha = 0
         }
-    }
-}
-
-// MARK: - MBErrorViewDelegate
-
-extension ExchangesViewController: MBErrorViewDelegate {
-    func didTapReloadButton() {
-        viewModel.didTapReload()
     }
 }
