@@ -7,7 +7,7 @@
 
 import Foundation
 
-extension URLRequest { // FIXME: Remover
+extension URLRequest {
     var cURL: String {
         guard let url = url else {
             return "Error: URL not found"
