@@ -52,16 +52,18 @@ final class DetailViewController: MBTableViewController {
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "Cell")
     }
 
+    // MARK: Internal Methods
+
+    @objc
+    func pullToRefresh() {
+        self.viewModel.pullToRefresh()
+    }
+
     // MARK: Private Methods
 
     private func setupRefreshControl() {
-        self.refreshControl.addTarget(self, action: #selector(self.pullToRefresh(_:)), for: .valueChanged)
+        self.refreshControl.addTarget(self, action: #selector(pullToRefresh), for: .valueChanged)
         self.tableView.addSubview(refreshControl)
-    }
-
-    @objc
-    private func pullToRefresh(_ sender: AnyObject) {
-        self.viewModel.pullToRefresh()
     }
 
     private func stopLoading() {
@@ -92,8 +94,8 @@ extension DetailViewController: UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell")
         cell?.textLabel?.text = section.rows[indexPath.row].text
         cell?.textLabel?.numberOfLines = 0
-        cell?.backgroundColor = (indexPath.row % 2 == 0) ? .lightGray : .gray
         cell?.selectionStyle = .none
+        cell?.backgroundColor = (indexPath.row % 2 == 0) ? .lightGray : .gray
 
         return cell ?? UITableViewCell()
     }
@@ -104,18 +106,7 @@ extension DetailViewController: UITableViewDataSource {
 extension DetailViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let viewModel = viewModel.sections[section]
-        
-        // FIXME: - Criar class
-        let view = UIView(frame: .zero)
-
-        let thumbnail = UIImageView()
-        thumbnail.backgroundColor = .white
-        thumbnail.contentMode = .scaleAspectFit
-        thumbnail.fill(on: view, insets: .init(top: .zero, left: .zero, bottom: 16, right: .zero))
-        thumbnail.loadFromUrl(stringURL: viewModel.thumbnailURL)
-        NSLayoutConstraint.activate([thumbnail.heightAnchor.constraint(equalToConstant: 160)])
-
-        return view
+        return DetailHeaderView(thumbnailURL: viewModel.thumbnailURL)
     }
 }
 

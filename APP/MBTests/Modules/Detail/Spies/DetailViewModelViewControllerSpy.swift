@@ -1,19 +1,23 @@
 //
-//  ExchangesViewControllerSpy.swift
-//  MBTests
+//  DetailViewModelViewControllerSpy.swift
+//  MarvelTests
 //
-//  Created by Wagner Sales on 30/01/24.
+//  Created by Wagner Sales on 10/12/23.
 //
 
 import XCTest
 @testable import MB
 
-final class ExchangesViewControllerSpy: ExchangesOutputProtocol {
+final class DetailViewViewControllerSpy: DetailOutputProtocol {
     var receivedMessages: [Message] = []
     let expectation: XCTestExpectation?
 
     init(expectation: XCTestExpectation? = nil) {
         self.expectation = expectation
+    }
+
+    func setTitle(_ title: String) {
+        receivedMessages.append(.setTitle)
     }
 
     func startLoading() {
@@ -29,18 +33,13 @@ final class ExchangesViewControllerSpy: ExchangesOutputProtocol {
         receivedMessages.append(.failure)
         expectation?.fulfill()
     }
-
-    func update(section: Int) {
-        receivedMessages.append(.updateSection)
-    }
 }
 
-extension ExchangesViewControllerSpy {
+extension DetailViewViewControllerSpy {
     enum Message {
+        case setTitle
         case startLoading
         case success
         case failure
-        case updateSection
     }
 }
-

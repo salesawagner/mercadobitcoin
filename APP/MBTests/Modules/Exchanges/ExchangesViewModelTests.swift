@@ -29,7 +29,7 @@ final class ExchangesViewModelTests: XCTestCase {
         let result = XCTWaiter.wait(for: [expectation], timeout: 1)
         switch result {
         case .completed:
-            XCTAssertEqual(viewControllerSpy.receivedMessages, [.startLoading, .success])
+            XCTAssertEqual(viewControllerSpy.receivedMessages, [.setTitle, .startLoading, .success])
         default:
             XCTFail("Delegate not called within timeout")
         }
@@ -39,10 +39,10 @@ final class ExchangesViewModelTests: XCTestCase {
         let (sut, viewControllerSpy) = makeSUT(api: WASAPI(environment: Environment.local))
         sut.viewDidLoad()
 
-        XCTAssertEqual(viewControllerSpy.receivedMessages, [.startLoading])
+        XCTAssertEqual(viewControllerSpy.receivedMessages, [.setTitle, .startLoading])
     }
 
-    func test_requestExchanges_success_shouldReceiveCorrectMessages() {
+    func test_viewDidLoad_requestExchanges_success_shouldReceiveCorrectMessages() {
         let expectation = XCTestExpectation(description: "requestExchanges_success")
         let (sut, viewControllerSpy) = makeSUT(api: WASAPI(environment: Environment.local), expectation: expectation)
         sut.viewDidLoad()
@@ -56,10 +56,66 @@ final class ExchangesViewModelTests: XCTestCase {
         }
     }
 
-    func test_requestExchanges_failure_shouldReceiveCorrectMessages() {
+    func test_viewDidLoad_requestExchanges_failure_shouldReceiveCorrectMessages() {
         let expectation = XCTestExpectation(description: "requestExchanges_failure")
         let (sut, viewControllerSpy) = makeSUT(api: WASAPIMock(), expectation: expectation)
         sut.viewDidLoad()
+
+        let result = XCTWaiter.wait(for: [expectation], timeout: 1)
+        switch result {
+        case .completed:
+            XCTAssertTrue(viewControllerSpy.receivedMessages.contains(.failure))
+        default:
+            XCTFail("Delegate not called within timeout")
+        }
+    }
+
+    func test_pullToRefresh_requestExchanges_success_shouldReceiveCorrectMessages() {
+        let expectation = XCTestExpectation(description: "requestExchanges_success")
+        let (sut, viewControllerSpy) = makeSUT(api: WASAPI(environment: Environment.local), expectation: expectation)
+        sut.pullToRefresh()
+
+        let result = XCTWaiter.wait(for: [expectation], timeout: 1)
+        switch result {
+        case .completed:
+            XCTAssertTrue(viewControllerSpy.receivedMessages.contains(.success))
+        default:
+            XCTFail("Delegate not called within timeout")
+        }
+    }
+
+    func test_pullToRefresh_requestExchanges_failure_shouldReceiveCorrectMessages() {
+        let expectation = XCTestExpectation(description: "requestExchanges_failure")
+        let (sut, viewControllerSpy) = makeSUT(api: WASAPIMock(), expectation: expectation)
+        sut.pullToRefresh()
+
+        let result = XCTWaiter.wait(for: [expectation], timeout: 1)
+        switch result {
+        case .completed:
+            XCTAssertTrue(viewControllerSpy.receivedMessages.contains(.failure))
+        default:
+            XCTFail("Delegate not called within timeout")
+        }
+    }
+
+    func test_didTapReload_requestExchanges_success_shouldReceiveCorrectMessages() {
+        let expectation = XCTestExpectation(description: "requestExchanges_success")
+        let (sut, viewControllerSpy) = makeSUT(api: WASAPI(environment: Environment.local), expectation: expectation)
+        sut.didTapReload()
+
+        let result = XCTWaiter.wait(for: [expectation], timeout: 1)
+        switch result {
+        case .completed:
+            XCTAssertTrue(viewControllerSpy.receivedMessages.contains(.success))
+        default:
+            XCTFail("Delegate not called within timeout")
+        }
+    }
+
+    func test_didTapReload_requestExchanges_failure_shouldReceiveCorrectMessages() {
+        let expectation = XCTestExpectation(description: "requestExchanges_failure")
+        let (sut, viewControllerSpy) = makeSUT(api: WASAPIMock(), expectation: expectation)
+        sut.didTapReload()
 
         let result = XCTWaiter.wait(for: [expectation], timeout: 1)
         switch result {

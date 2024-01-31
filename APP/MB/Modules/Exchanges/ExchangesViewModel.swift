@@ -13,6 +13,7 @@ final class ExchangesViewModel {
     private var api: APIClient
     private var response: GetExchangesRequest.Response = []
     private var thumbnails: GetExchangeIconRequest.Response = []
+    private let title = "Exchanges"
 
     var viewController: ExchangesOutputProtocol?
     var rows: [ExchangeRowViewModel] {
@@ -106,6 +107,7 @@ extension ExchangesViewModel: ExchangesInputProtocol {
     }
 
     func viewDidLoad() {
+        viewController?.setTitle(title)
         requestExchanges()
     }
 }

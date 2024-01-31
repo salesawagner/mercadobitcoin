@@ -7,7 +7,7 @@
 
 import API
 
-class DetailViewModel {
+final class DetailViewModel {
     // MARK: Properties
 
     private var api: APIClient
@@ -54,17 +54,13 @@ class DetailViewModel {
     }
 
     private func buildSection() {
-        var rows: [DetailRowViewModel] = []
-        rows.append(.init(text: "Id: \(detail.exchangeID ?? "-")"))
-        rows.append(.init(text: "Name: \(detail.name ?? "-")"))
-        rows.append(.init(text: "Website: \(detail.website ?? "-")"))
-        rows.append(.init(text: "Volume 1hr: \(detail.volume1HrsUsd ?? 0)"))
-        rows.append(.init(text: "Volume 1 dia: \(detail.volume1DayUsd ?? 0)"))
-        rows.append(.init(text: "Volume 1 mês: \(detail.volume1MthUsd ?? 0)"))
-
-        // FIXME: Icon
-        sections = []
-        sections.append(.init(thumbnailURL: thumbnailURL, rows: rows))
+        sections = [.init(thumbnailURL: thumbnailURL, rows: [
+            .init(text: "Id: \(detail.exchangeID ?? "-")"),
+            .init(text: "Website: \(detail.website ?? "-")"),
+            .init(text: "Volume 1hr: \(detail.volume1HrsUsd ?? 0)"),
+            .init(text: "Volume 1 dia: \(detail.volume1DayUsd ?? 0)"),
+            .init(text: "Volume 1 mês: \(detail.volume1MthUsd ?? 0)")
+        ])]
 
         DispatchQueue.main.async { [weak self] in
             self?.viewController?.success()

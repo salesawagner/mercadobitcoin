@@ -51,6 +51,9 @@ final class ExchangeCell: UITableViewCell {
         thumbnail.contentMode = .scaleAspectFill
         thumbnail.clipsToBounds = true
         thumbnail.layer.cornerRadius = size/2
+        thumbnail.layer.borderWidth = 4
+        thumbnail.layer.borderColor = UIColor.white.cgColor
+
         NSLayoutConstraint.activate([
             thumbnail.widthAnchor.constraint(equalToConstant: size),
             thumbnail.heightAnchor.constraint(equalToConstant: size)

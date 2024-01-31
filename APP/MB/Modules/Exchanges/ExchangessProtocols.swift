@@ -17,6 +17,7 @@ protocol ExchangesInputProtocol {
 }
 
 protocol ExchangesOutputProtocol {
+    func setTitle(_ title: String)
     func startLoading()
     func success()
     func failure()

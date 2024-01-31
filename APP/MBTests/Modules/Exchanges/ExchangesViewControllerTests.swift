@@ -59,5 +59,13 @@ final class ExchangesViewControllerTests: XCTestCase {
         sut.pullToRefresh()
         XCTAssertTrue(viewModelSpy.receivedMessages.contains(.pullToRefresh))
     }
+
+    func test_failure_shouldReceiveCorrectMessages() {
+        let (sut, _) = makeSUT()
+        loadView(sut: sut)
+
+        sut.failure()
+        XCTAssertNotNil(sut.errorView)
+    }
 }
 

@@ -23,12 +23,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         window?.rootViewController = navigationController
         window?.makeKeyAndVisible()
-        window?.backgroundColor = .black
 
-        // Navigation bar appearance
-        let navAppearance = UINavigationBar.appearance()
-        navAppearance.barTintColor = .white
-        navAppearance.isTranslucent = false
+        let barAppearance = UINavigationBarAppearance()
+        barAppearance.backgroundColor = .white
+
+        let navigationBar = UINavigationBar.appearance()
+        navigationBar.standardAppearance = barAppearance
+        navigationBar.scrollEdgeAppearance = barAppearance
 
         return true
     }

@@ -105,6 +105,10 @@ extension ExchangesViewController: UITableViewDelegate {
 // MARK: - ExchangesOutnputProtocol
 
 extension ExchangesViewController: ExchangesOutputProtocol {
+    func setTitle(_ title: String) {
+        navigationItem.title = title
+    }
+
     func startLoading() {
         activityIndicator.startAnimating()
         UIView.animate(withDuration: 0.25) { [weak self] in

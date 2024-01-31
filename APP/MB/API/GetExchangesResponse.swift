@@ -35,4 +35,34 @@ struct GetExchangesResponse: Decodable {
         case volume1DayUsd = "volume_1day_usd"
         case volume1MthUsd = "volume_1mth_usd"
     }
+
+//    init(
+//        exchangeID: String?,
+//        website: String?,
+//        name: String?,
+//        dataQuoteStart: String?,
+//        dataQuoteEnd: String?,
+//        dataOrderbookStart: String?,
+//        dataOrderbookEnd: String?,
+//        dataTradeStart: String?,
+//        dataTradeEnd: String?,
+//        dataSymbolsCount: Int?,
+//        volume1HrsUsd: Double?,
+//        volume1DayUsd: Double?,
+//        volume1MthUsd: Double?
+//    ) {
+//        self.exchangeID = exchangeID
+//        self.website = website
+//        self.name = name
+//        self.dataQuoteStart = dataQuoteStart
+//        self.dataQuoteEnd = dataQuoteEnd
+//        self.dataOrderbookStart = dataOrderbookStart
+//        self.dataOrderbookEnd = dataOrderbookEnd
+//        self.dataTradeStart = dataTradeStart
+//        self.dataTradeEnd = dataTradeEnd
+//        self.dataSymbolsCount = dataSymbolsCount
+//        self.volume1HrsUsd = volume1HrsUsd
+//        self.volume1DayUsd = volume1DayUsd
+//        self.volume1MthUsd = volume1MthUsd
+//    }
 }

@@ -16,13 +16,19 @@
 		3BEE0C4A6C14BA5EB4BD0DB8 /* Pods_MBTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00A2A14E6199C76C8D4606A0 /* Pods_MBTests.framework */; };
 		5552B6FB3291848A1DD21F27 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2D63DFCFE85D6268FC49A204 /* Assets.xcassets */; };
 		5671EAF361851412A337C4F6 /* WASAPIMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8963E767AF4DF24A9B5996EC /* WASAPIMock.swift */; };
-		64DA81F773B9253B605C6483 /* mbTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB86272FD34DF8EED3FF964 /* mbTests.swift */; };
 		64F7C9E3B494D4D88E850B09 /* ExchangeRowViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A500356A39BEDA1266856ED /* ExchangeRowViewModel.swift */; };
 		6D41D82002034341DD662C32 /* Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C83A0E394192BEA7FC25AB0 /* Environment.swift */; };
 		8A639C4AE9A9C3CA71B4B41D /* ExchangessProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7105CFED476B8675AD6B32A5 /* ExchangessProtocols.swift */; };
 		9ED2EE6D5CFB071EDE9F7F9D /* UIViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB07D2EE3E06DEBA65A31D31 /* UIViewExtensions.swift */; };
 		A7DBFE742B69600900A6231F /* UIImageViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7DBFE732B69600900A6231F /* UIImageViewExtensions.swift */; };
 		A7DBFE762B69686000A6231F /* UIEdgeInsetsExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7DBFE752B69686000A6231F /* UIEdgeInsetsExtensions.swift */; };
+		A7DBFE822B69B05500A6231F /* DetailViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7DBFE7E2B69AFF000A6231F /* DetailViewModelTests.swift */; };
+		A7DBFE832B69B05500A6231F /* DetailRowViewModelMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7DBFE7A2B69AFF000A6231F /* DetailRowViewModelMock.swift */; };
+		A7DBFE842B69B05500A6231F /* DetailViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7DBFE7F2B69AFF000A6231F /* DetailViewControllerTests.swift */; };
+		A7DBFE852B69B05500A6231F /* DetailViewModelSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7DBFE7C2B69AFF000A6231F /* DetailViewModelSpy.swift */; };
+		A7DBFE862B69B05500A6231F /* DetailSectionViewModelMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7DBFE792B69AFF000A6231F /* DetailSectionViewModelMock.swift */; };
+		A7DBFE872B69B05500A6231F /* DetailViewModelViewControllerSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7DBFE7D2B69AFF000A6231F /* DetailViewModelViewControllerSpy.swift */; };
+		A7DBFE8A2B69B18500A6231F /* GetExchangesResponseMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7DBFE892B69B18500A6231F /* GetExchangesResponseMock.swift */; };
 		A7FCCC8A2B68A18100CC85E0 /* ExchangesViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7FCCC892B68A18100CC85E0 /* ExchangesViewControllerTests.swift */; };
 		A7FCCC8C2B68A1E100CC85E0 /* ExchangesViewModelSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7FCCC8B2B68A1E100CC85E0 /* ExchangesViewModelSpy.swift */; };
 		A7FCCC8F2B68A2CD00CC85E0 /* ExchangeRowViewModelMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7FCCC8E2B68A2CD00CC85E0 /* ExchangeRowViewModelMock.swift */; };
@@ -76,6 +82,13 @@
 		A02A24685106CC4BA5E7B720 /* MBTests.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = MBTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A7DBFE732B69600900A6231F /* UIImageViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageViewExtensions.swift; sourceTree = "<group>"; };
 		A7DBFE752B69686000A6231F /* UIEdgeInsetsExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIEdgeInsetsExtensions.swift; sourceTree = "<group>"; };
+		A7DBFE792B69AFF000A6231F /* DetailSectionViewModelMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailSectionViewModelMock.swift; sourceTree = "<group>"; };
+		A7DBFE7A2B69AFF000A6231F /* DetailRowViewModelMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailRowViewModelMock.swift; sourceTree = "<group>"; };
+		A7DBFE7C2B69AFF000A6231F /* DetailViewModelSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModelSpy.swift; sourceTree = "<group>"; };
+		A7DBFE7D2B69AFF000A6231F /* DetailViewModelViewControllerSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModelViewControllerSpy.swift; sourceTree = "<group>"; };
+		A7DBFE7E2B69AFF000A6231F /* DetailViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModelTests.swift; sourceTree = "<group>"; };
+		A7DBFE7F2B69AFF000A6231F /* DetailViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewControllerTests.swift; sourceTree = "<group>"; };
+		A7DBFE892B69B18500A6231F /* GetExchangesResponseMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetExchangesResponseMock.swift; sourceTree = "<group>"; };
 		A7FCCC892B68A18100CC85E0 /* ExchangesViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangesViewControllerTests.swift; sourceTree = "<group>"; };
 		A7FCCC8B2B68A1E100CC85E0 /* ExchangesViewModelSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangesViewModelSpy.swift; sourceTree = "<group>"; };
 		A7FCCC8E2B68A2CD00CC85E0 /* ExchangeRowViewModelMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeRowViewModelMock.swift; sourceTree = "<group>"; };
@@ -100,7 +113,6 @@
 		CB07D2EE3E06DEBA65A31D31 /* UIViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtensions.swift; sourceTree = "<group>"; };
 		DCAE635D475F1D55463E8A65 /* Pods-MBTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MBTests.release.xcconfig"; path = "Target Support Files/Pods-MBTests/Pods-MBTests.release.xcconfig"; sourceTree = "<group>"; };
 		DE7318BAB47F9564BA60A713 /* ExchangesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangesViewModel.swift; sourceTree = "<group>"; };
-		DEB86272FD34DF8EED3FF964 /* mbTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mbTests.swift; sourceTree = "<group>"; };
 		E835B486A5A6F26DE6D63F2D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -187,9 +199,57 @@
 			path = API;
 			sourceTree = "<group>";
 		};
+		A7DBFE772B69AFF000A6231F /* Detail */ = {
+			isa = PBXGroup;
+			children = (
+				A7DBFE782B69AFF000A6231F /* Mocks */,
+				A7DBFE7B2B69AFF000A6231F /* Spies */,
+				A7DBFE7E2B69AFF000A6231F /* DetailViewModelTests.swift */,
+				A7DBFE7F2B69AFF000A6231F /* DetailViewControllerTests.swift */,
+			);
+			path = Detail;
+			sourceTree = "<group>";
+		};
+		A7DBFE782B69AFF000A6231F /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				A7DBFE792B69AFF000A6231F /* DetailSectionViewModelMock.swift */,
+				A7DBFE7A2B69AFF000A6231F /* DetailRowViewModelMock.swift */,
+				A7DBFE892B69B18500A6231F /* GetExchangesResponseMock.swift */,
+			);
+			path = Mocks;
+			sourceTree = "<group>";
+		};
+		A7DBFE7B2B69AFF000A6231F /* Spies */ = {
+			isa = PBXGroup;
+			children = (
+				A7DBFE7C2B69AFF000A6231F /* DetailViewModelSpy.swift */,
+				A7DBFE7D2B69AFF000A6231F /* DetailViewModelViewControllerSpy.swift */,
+			);
+			path = Spies;
+			sourceTree = "<group>";
+		};
+		A7DBFE802B69B03500A6231F /* Spies */ = {
+			isa = PBXGroup;
+			children = (
+				A7FCCC8B2B68A1E100CC85E0 /* ExchangesViewModelSpy.swift */,
+				A7FCCC922B68A3F700CC85E0 /* ExchangesViewControllerSpy.swift */,
+			);
+			path = Spies;
+			sourceTree = "<group>";
+		};
+		A7DBFE812B69B04B00A6231F /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				A7FCCC8E2B68A2CD00CC85E0 /* ExchangeRowViewModelMock.swift */,
+			);
+			path = Mocks;
+			sourceTree = "<group>";
+		};
 		A7FCCC872B68A15700CC85E0 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				A7DBFE772B69AFF000A6231F /* Detail */,
 				A7FCCC882B68A16400CC85E0 /* Exchanges */,
 			);
 			path = Modules;
@@ -198,11 +258,10 @@
 		A7FCCC882B68A16400CC85E0 /* Exchanges */ = {
 			isa = PBXGroup;
 			children = (
-				A7FCCC8E2B68A2CD00CC85E0 /* ExchangeRowViewModelMock.swift */,
+				A7DBFE802B69B03500A6231F /* Spies */,
+				A7DBFE812B69B04B00A6231F /* Mocks */,
 				A7FCCC892B68A18100CC85E0 /* ExchangesViewControllerTests.swift */,
-				A7FCCC8B2B68A1E100CC85E0 /* ExchangesViewModelSpy.swift */,
 				A7FCCC902B68A38F00CC85E0 /* ExchangesViewModelTests.swift */,
-				A7FCCC922B68A3F700CC85E0 /* ExchangesViewControllerSpy.swift */,
 			);
 			path = Exchanges;
 			sourceTree = "<group>";
@@ -260,6 +319,7 @@
 		CF74272894304ED666FD395B /* Base */ = {
 			isa = PBXGroup;
 			children = (
+				4C83A0E394192BEA7FC25AB0 /* Environment.swift */,
 				879E01868588F6F41BEA279E /* MBTableViewController.swift */,
 				A7FCCC952B68C8E300CC85E0 /* MBErrorView.swift */,
 			);
@@ -272,7 +332,6 @@
 				A7FCCC8D2B68A2AF00CC85E0 /* Mocks */,
 				A7FCCC872B68A15700CC85E0 /* Modules */,
 				CA898FCFE1953F5FED6F1931 /* Info.plist */,
-				DEB86272FD34DF8EED3FF964 /* mbTests.swift */,
 				83429D4D24F02FA98603FE2A /* Commons */,
 			);
 			path = MBTests;
@@ -283,7 +342,6 @@
 			children = (
 				C76A873D3087CEECC1C11157 /* AppDelegate.swift */,
 				2D63DFCFE85D6268FC49A204 /* Assets.xcassets */,
-				4C83A0E394192BEA7FC25AB0 /* Environment.swift */,
 				C77DDA2F99FC25F5604FB108 /* Info.plist */,
 				BBAE128DC8128714401C4DC4 /* LaunchScreen.storyboard */,
 				A0EF254BC10544D4E7A16797 /* API */,
@@ -496,15 +554,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A7DBFE832B69B05500A6231F /* DetailRowViewModelMock.swift in Sources */,
 				A7FCCC8C2B68A1E100CC85E0 /* ExchangesViewModelSpy.swift in Sources */,
+				A7DBFE822B69B05500A6231F /* DetailViewModelTests.swift in Sources */,
 				EAB252081DBE1B449867B049 /* ResponseType.swift in Sources */,
 				A7FCCC932B68A3F700CC85E0 /* ExchangesViewControllerSpy.swift in Sources */,
 				0D36BF7A7BDF58F7DC93439A /* ViewExtensions.swift in Sources */,
 				A7FCCC8F2B68A2CD00CC85E0 /* ExchangeRowViewModelMock.swift in Sources */,
 				5671EAF361851412A337C4F6 /* WASAPIMock.swift in Sources */,
+				A7DBFE8A2B69B18500A6231F /* GetExchangesResponseMock.swift in Sources */,
 				A7FCCC912B68A38F00CC85E0 /* ExchangesViewModelTests.swift in Sources */,
 				A7FCCC8A2B68A18100CC85E0 /* ExchangesViewControllerTests.swift in Sources */,
-				64DA81F773B9253B605C6483 /* mbTests.swift in Sources */,
+				A7DBFE862B69B05500A6231F /* DetailSectionViewModelMock.swift in Sources */,
+				A7DBFE872B69B05500A6231F /* DetailViewModelViewControllerSpy.swift in Sources */,
+				A7DBFE842B69B05500A6231F /* DetailViewControllerTests.swift in Sources */,
+				A7DBFE852B69B05500A6231F /* DetailViewModelSpy.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
