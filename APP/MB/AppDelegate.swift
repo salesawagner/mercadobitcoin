@@ -17,7 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         window = UIWindow()
 
-        let api = WASAPI(environment: Environment.local)
+        let api = WASAPI(environment: Environment.production)
         let viewController = ExchangesViewController.create(with: ExchangesViewModel(api: api))
         let navigationController = UINavigationController(rootViewController: viewController)
 
